@@ -12,6 +12,11 @@ today = date.today()
 today_date = today.strftime("%d-%m-%Y") # dd/mm/YY
 
 
+proxies = {
+ "http": "http://116.73.14.16:8080",
+ "https": "https://116.73.14.16:8080"
+}
+
 """
 # Vaccine centers in India.
 
@@ -19,7 +24,7 @@ Source: [Github](https://github.com/misalraj/vaccine_availability_info)
 """
 
 
-res1 = requests.get("https://cdn-api.co-vin.in/api/v2/admin/location/states")
+res1 = requests.get("https://cdn-api.co-vin.in/api/v2/admin/location/states", proxies=proxies)
 states = pd.DataFrame(json.loads(res1.text)["states"])
 states_list = states["state_name"].tolist()
 
@@ -36,7 +41,7 @@ selected_state = st.sidebar.selectbox(
 state_id = states.loc[states['state_name'] == selected_state, "state_id"].item()
 
 
-res2 = requests.get("https://cdn-api.co-vin.in/api/v2/admin/location/districts/{}".format(state_id))
+res2 = requests.get("https://cdn-api.co-vin.in/api/v2/admin/location/districts/{}".format(state_id),proxies=proxies)
 df_district = pd.DataFrame(json.loads(res2.text)["districts"])
 district_list = df_district["district_name"].tolist()
 
@@ -52,7 +57,7 @@ district_id = df_district.loc[df_district['district_name'] == selected_district,
 
 URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id={}&date={}" \
       .format(district_id,today_date)
-res = requests.get(URL)
+res = requests.get(URL, proxies=proxies)
 
 calender_df = pd.DataFrame(json.loads(res.text)["centers"])
 if 'vaccine_fees' in calender_df.columns:
