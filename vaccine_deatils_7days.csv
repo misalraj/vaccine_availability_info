@@ -1,0 +1,64 @@
+name,state_name,district_name,pincode,fee_type,vaccine_fees
+Resaldar Baba Doranda,Jharkhand,Ranchi,834001,Free,
+LAPUNG COVAXIN,Jharkhand,Ranchi,835234,Free,
+SEVA SADAN,Jharkhand,Ranchi,834001,Paid,"[{'vaccine': 'COVISHIELD', 'fee': '0'}]"
+TAMAR PANCHAYAT,Jharkhand,Ranchi,835225,Free,
+JAGUAR,Jharkhand,Ranchi,835222,Free,
+GURUDWARA PISKA MORE,Jharkhand,Ranchi,834005,Free,
+NAMKUM PANCHYAT,Jharkhand,Ranchi,834010,Free,
+JAGARNATH HOSPITAL,Jharkhand,Ranchi,834001,Paid,"[{'vaccine': 'COVAXIN', 'fee': '250'}]"
+DSP HQ,Jharkhand,Ranchi,834001,Free,
+BOOTI GOVT SCHOOL,Jharkhand,Ranchi,834001,Free,
+CHANHO PANCHYAT,Jharkhand,Ranchi,835214,Free,
+BURMU CHC,Jharkhand,Ranchi,835214,Free,
+ORMANJHI CHC,Jharkhand,Ranchi,835219,Free,
+HEC WELNES CENTRE,Jharkhand,Ranchi,834004,Free,
+NEW BIDHAN SABHA,Jharkhand,Ranchi,834004,Free,
+SADAR HOSPITAL CAMPUS 1,Jharkhand,Ranchi,834001,Free,
+DEV KAMAK HOSPITAL 1,Jharkhand,Ranchi,834005,Paid,"[{'vaccine': 'COVISHIELD', 'fee': '250'}]"
+JAP 1 DORANDA RANCHI,Jharkhand,Ranchi,834001,Free,
+BURMU COVAXIN,Jharkhand,Ranchi,835214,Free,
+Devkaml Hospital,Jharkhand,Ranchi,834001,Paid,"[{'vaccine': 'COVAXIN', 'fee': '250'}]"
+Angara CHC,Jharkhand,Ranchi,834006,Free,
+HARMU HOSPITAL,Jharkhand,Ranchi,834002,Paid,"[{'vaccine': 'COVISHIELD', 'fee': '0'}]"
+DR RAVI CHILD HEALTH CARE,Jharkhand,Ranchi,834001,Paid,"[{'vaccine': 'COVISHIELD', 'fee': '250'}]"
+SILLI CHC,Jharkhand,Ranchi,835012,Free,
+SADAR HOSPITAL (P.P.),Jharkhand,Ranchi,834001,Free,
+BUNDU CHC,Jharkhand,Ranchi,835204,Free,
+NAMKUM CHC,Jharkhand,Ranchi,834010,Free,
+LAPUNG CHC,Jharkhand,Ranchi,835234,Free,
+GOVT MIDDLE SCHOOL DHOBI GHAT,Jharkhand,Ranchi,834002,Free,
+RESALDAR 1,Jharkhand,Ranchi,834002,Free,
+SADAR HOSPITAL SITE2,Jharkhand,Ranchi,834001,Free,
+JAIL HOTWAR,Jharkhand,Ranchi,835217,Free,
+COMMUNITY CENTRE ASHOKE NAGER,Jharkhand,Ranchi,834002,Free,
+CITY TRUST HOSPITAL,Jharkhand,Ranchi,834005,Paid,"[{'vaccine': 'COVAXIN', 'fee': '250'}]"
+HEALTH POINT,Jharkhand,Ranchi,834009,Paid,"[{'vaccine': 'COVAXIN', 'fee': '0'}]"
+KANKE CHC,Jharkhand,Ranchi,834006,Free,
+KALAKENDRA MECON,Jharkhand,Ranchi,834001,Free,
+MANDAR CHC,Jharkhand,Ranchi,835214,Free,
+TAMAR CHC,Jharkhand,Ranchi,835225,Free,
+RED CROSS HOS.,Jharkhand,Ranchi,834001,Free,
+BERO CHC,Jharkhand,Ranchi,835202,Free,
+GOVT HIGH SCHOOL HATIYA,Jharkhand,Ranchi,834003,Free,
+ORCHID HOSPITAL,Jharkhand,Ranchi,834001,Paid,"[{'vaccine': 'COVISHIELD', 'fee': '0'}]"
+HOPE DIAGNOSTICS CENTRE,Jharkhand,Ranchi,834009,Paid,"[{'vaccine': 'COVAXIN', 'fee': '250'}, {'vaccine': 'COVISHIELD', 'fee': '0'}]"
+RATU PANCHYAT,Jharkhand,Ranchi,835222,Free,
+UPHC CHUTIA,Jharkhand,Ranchi,834001,Free,
+RAILWAY HOSPITAL HATIA,Jharkhand,Ranchi,834001,Free,
+HARSHIT HOSPITAL,Jharkhand,Ranchi,835222,Paid,"[{'vaccine': 'COVAXIN', 'fee': '250'}]"
+NEPAL HOUSE,Jharkhand,Ranchi,834002,Free,
+PRABHAT KHABR,Jharkhand,Ranchi,834001,Free,
+KANKE CIP,Jharkhand,Ranchi,834006,Free,
+DN PRASAD EYE CENTRE,Jharkhand,Ranchi,834001,Paid,"[{'vaccine': 'COVISHIELD', 'fee': '0'}]"
+PROJECT BUILDING DHURWA,Jharkhand,Ranchi,834004,Free,
+CHANHO CHC,Jharkhand,Ranchi,835214,Free,
+RIMS 2,Jharkhand,Ranchi,834001,Free,
+MILITARY HOSPITAL (ARMY),Jharkhand,Ranchi,834010,Free,
+POLICE LINE 1,Jharkhand,Ranchi,834006,Free,
+SONAHATU CHC,Jharkhand,Ranchi,835204,Free,
+RATU CHC,Jharkhand,Ranchi,835222,Free,
+RAILWAY HOSPITAL MURI,Jharkhand,Ranchi,835101,Free,
+Ranchi Urology,Jharkhand,Ranchi,834009,Paid,"[{'vaccine': 'COVAXIN', 'fee': '250'}]"
+CLINIC APOLLO,Jharkhand,Ranchi,834009,Paid,"[{'vaccine': 'COVISHIELD', 'fee': '0'}]"
+ST. BARNABAS HOSPITAL,Jharkhand,Ranchi,834001,Paid,"[{'vaccine': 'COVISHIELD', 'fee': '250'}]"
