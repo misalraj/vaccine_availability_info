@@ -13,8 +13,8 @@ today_date = today.strftime("%d-%m-%Y") # dd/mm/YY
 
 
 proxies = {
- "http": "http://116.73.14.16:8080",
- "https": "https://116.73.14.16:8080"
+ "http": "http://223.30.190.74:8080",
+ "https": "https://223.30.190.74:8080"
 }
 
 """
