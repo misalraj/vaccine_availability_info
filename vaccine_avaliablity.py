@@ -69,7 +69,7 @@ agree = st.checkbox('Filter by Pincode')
 if agree: 
     selected_pincode = st.selectbox(
         "Pincode",
-        options=sorted(district_pincode_list.tolist()),
+        options=sorted(set(district_pincode_list.tolist())),
         )
     st.success("Results: " + "Pincode" + ": " + str(selected_pincode) +",   "+ str(selected_district)+ ", "+ str(selected_state)) 
 else:
