@@ -18,8 +18,9 @@ st.set_page_config(page_title="Vaccine Avaliablity" , page_icon=":syringe:")
 
 st.markdown('# Vaccine centers in India :syringe::syringe:')
 
-# Source: [Github](https://github.com/misalraj/vaccine_availability_info)
-
+"""
+ Source: [Github](https://github.com/misalraj/vaccine_availability_info) :star:
+"""
 
 df_states = pd.read_csv("data/states.csv")
 states_list = df_states['state_name'].to_list()
