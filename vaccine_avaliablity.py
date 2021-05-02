@@ -18,9 +18,8 @@ today_date = today.strftime("%d-%m-%Y") # dd/mm/YY
 
 """
 # Vaccine centers in India.
-
-Source: [Github](https://github.com/misalraj/vaccine_availability_info)
 """
+# Source: [Github](https://github.com/misalraj/vaccine_availability_info)
 
 
 df_states = pd.read_csv("data/states.csv")
