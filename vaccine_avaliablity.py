@@ -53,10 +53,16 @@ res = requests.get(URL)
 calender_df = pd.DataFrame(json.loads(res.text)["centers"])
 district_pincode_list = calender_df.loc[calender_df['district_name'] == selected_district, "pincode"]
 
+calender_df["from"] = pd.to_datetime(calender_df["from"]).dt.strftime('%H:%M')
+calender_df["to"] = pd.to_datetime(calender_df["to"]).dt.strftime('%H:%M')
+calender_df["Timing"] = calender_df["from"] + " - " + calender_df["to"]
+calender_df.rename(columns = {'name':'Name', 'pincode':'Pincode',
+                                'fee_type':'Fee type' ,'vaccine_fees': "Vaccine charge"}, inplace = True)
+
 if 'vaccine_fees' in calender_df.columns:
-    calender_df = calender_df[['name','pincode', 'fee_type','vaccine_fees']]
+    calender_df = calender_df[['Name','Pincode','Timing', 'Fee type','Vaccine charge']]
 else:
-    calender_df = calender_df[['name', 'pincode', 'fee_type']]
+    calender_df = calender_df[['Name','Pincode','Timing', 'Fee type']]
 
 # district_pincode_list.tolist()
 selected_pincode = None
