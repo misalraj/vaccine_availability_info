@@ -12,10 +12,10 @@ today = date.today()
 today_date = today.strftime("%d-%m-%Y") # dd/mm/YY
 
 
-proxies = {
- "http": "http://223.30.190.74:8080",
- "https": "https://223.30.190.74:8080"
-}
+#proxies = {
+# "http": "http://223.30.190.74:8080",
+# "https": "https://223.30.190.74:8080"
+#}
 
 """
 # Vaccine centers in India.
@@ -24,7 +24,7 @@ Source: [Github](https://github.com/misalraj/vaccine_availability_info)
 """
 
 
-res1 = requests.get("https://cdn-api.co-vin.in/api/v2/admin/location/states", proxies=proxies)
+res1 = requests.get("https://cdn-api.co-vin.in/api/v2/admin/location/states")
 states = pd.DataFrame(json.loads(res1.text)["states"])
 states_list = states["state_name"].tolist()
 
