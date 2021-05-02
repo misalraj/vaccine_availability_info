@@ -60,7 +60,7 @@ selected_pincode = None
 agree = st.checkbox('Filter by Pincode')
 if agree:
     selected_pincode = st.selectbox(
-        "Pincode",
+        "Select Pincode",
         options=sorted(set(district_pincode_list.tolist())),
     )
     calender_df_pin = calender_df[calender_df["Pincode"] == selected_pincode]
