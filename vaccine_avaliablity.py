@@ -29,9 +29,7 @@ states_list = df_states['state_name'].to_list()
 
 st.sidebar.title("Please select Options")
 st.text(" \n\n") #break line
-# st.sidebar.info(
-#      
-#     )
+
 selected_state = st.sidebar.selectbox(
         "Select State",
         options=sorted(states_list),
@@ -45,8 +43,6 @@ selected_district = st.sidebar.selectbox(
         "Select District",
         options=sorted(district_list),
 )
-
-#Select date
 
 
 district_id = df_district_all.loc[df_district_all['district_name'] == selected_district, "district_id"].item()
