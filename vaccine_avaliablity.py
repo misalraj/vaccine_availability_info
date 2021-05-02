@@ -27,7 +27,7 @@ df_states = pd.read_csv("data/states.csv")
 states_list = df_states['state_name'].to_list()
 
 
-st.sidebar.title("About")
+st.sidebar.title("Please select Options")
 st.text(" \n\n") #break line
 # st.sidebar.info(
 #      
@@ -47,7 +47,7 @@ selected_district = st.sidebar.selectbox(
 )
 
 #Select date
-date = st.sidebar.date_input('select date', today)
+
 
 district_id = df_district_all.loc[df_district_all['district_name'] == selected_district, "district_id"].item()
 
@@ -61,7 +61,15 @@ if 'vaccine_fees' in calender_df.columns:
 else:
     calender_df = calender_df[['name', 'pincode', 'fee_type']]
 
+agree = st.checkbox('Filter by Pincode')
+if agree: 
+    selected_district = st.selectbox(
+        "Pincode",
+        options=sorted(states_list),
+        )
 
-if (st.sidebar.button("Fetch deatils")):
-    st.success("info: ")
-    st.table(calender_df)
+date = st.sidebar.date_input('select date', today)
+
+# if (st.sidebar.button("Fetch deatils")):
+st.success("Results: " + str(selected_district)+ ", "+ str(selected_state)) 
+st.table(calender_df)
