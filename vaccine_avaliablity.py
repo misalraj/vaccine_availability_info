@@ -71,5 +71,3 @@ if agree:
 else:
     st.success("Results: " + str(selected_district) + ", " + str(selected_state), )
     st.table(calender_df)
-
-# date = st.sidebar.date_input('select date', today)
