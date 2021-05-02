@@ -9,9 +9,15 @@ from datetime import date
 today = date.today()
 today_date = today.strftime("%d-%m-%Y")  # dd/mm/YY
 
-"""
-# Vaccine centers in India.
-"""
+st.set_page_config(page_title="Vaccine Avaliablity" , page_icon=":syringe:")
+# st.set_page_config
+
+# """
+# # Vaccine centers in India.
+# """
+
+st.markdown('# Vaccine centers in India :syringe::syringe:')
+
 # Source: [Github](https://github.com/misalraj/vaccine_availability_info)
 
 
