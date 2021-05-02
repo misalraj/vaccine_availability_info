@@ -56,20 +56,25 @@ URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDi
 res = requests.get(URL)
 
 calender_df = pd.DataFrame(json.loads(res.text)["centers"])
+district_pincode_list = calender_df.loc[calender_df['district_name'] == selected_district, "pincode"]
+
 if 'vaccine_fees' in calender_df.columns:
     calender_df = calender_df[['name','pincode', 'fee_type','vaccine_fees']]
 else:
     calender_df = calender_df[['name', 'pincode', 'fee_type']]
 
+# district_pincode_list.tolist()
+selected_pincode = None
 agree = st.checkbox('Filter by Pincode')
 if agree: 
-    selected_district = st.selectbox(
+    selected_pincode = st.selectbox(
         "Pincode",
-        options=sorted(states_list),
+        options=sorted(district_pincode_list.tolist()),
         )
+    st.success("Results: " + "Pincode" + ": " + str(selected_pincode) +",   "+ str(selected_district)+ ", "+ str(selected_state)) 
+else:
+    st.success("Results: " +  str(selected_district)+ ", "+ str(selected_state), ) 
 
 date = st.sidebar.date_input('select date', today)
 
-# if (st.sidebar.button("Fetch deatils")):
-st.success("Results: " + str(selected_district)+ ", "+ str(selected_state)) 
 st.table(calender_df)
