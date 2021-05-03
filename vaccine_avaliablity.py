@@ -11,7 +11,7 @@ today_date = today.strftime("%d-%m-%Y")  # dd/mm/YY
 
 st.set_page_config(page_title="Vaccine Avaliablity" , page_icon=":syringe:",layout='wide', initial_sidebar_state='collapsed')
 
-st.markdown('# Slots availability for COVID Vaccine. :syringe::syringe:')
+st.markdown('# Slots availability for COVID Vaccine :syringe::syringe:')
 
 """
  Source: [Github](https://github.com/misalraj/vaccine_availability_info) :star:
