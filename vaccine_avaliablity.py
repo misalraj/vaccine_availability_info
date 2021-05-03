@@ -80,14 +80,30 @@ try:
         options=sorted(set(district_pincode_list.tolist())),
         )
         calender_df_pin = new_df[new_df["Pincode"] == selected_pincode]
-        calender_df_age1 = calender_df_pin[calender_df_pin["Min Age Limit"] == min_age_limit]
-
-        st.success("Results: " + "Pincode" + ": " + str(selected_pincode) + ",   " + str(selected_district) + ", " + str(
+        st.info("Results: " + "Pincode" + ": " + str(selected_pincode) + ",   " + str(selected_district) + ", " + str(
             selected_state))
-        st.table(calender_df_age1)
+        calender_df_age1 = None
+        if min_age_limit == 18:
+            calender_df_age1 = calender_df_pin[calender_df_pin["Min Age Limit"] == min_age_limit]
+            if calender_df_age1.empty:
+                st.table(calender_df_age1)
+            else:
+                st.table(new_df)
+        elif min_age_limit == 45:
+            calender_df_age1 = calender_df_pin[calender_df_pin["Min Age Limit"] == min_age_limit]
+            st.table(calender_df_age1)
     else:
-        st.success("Results: " + str(selected_district) + ", " + str(selected_state), )
-        calender_df_age2 = new_df[new_df["Min Age Limit"] == min_age_limit]
-        st.table(calender_df_age2)
+        st.info("Results: " + str(selected_district) + ", " + str(selected_state))
+        calender_df_age2 = None
+        if min_age_limit == 18:
+            calender_df_age2 = new_df[new_df["Min Age Limit"] == min_age_limit]
+            if calender_df_age2.empty:
+                st.table(calender_df_age2)
+            else:
+                st.table(new_df)
+        elif min_age_limit == 45:
+            calender_df_age2 = new_df[new_df["Min Age Limit"] == min_age_limit]
+            st.table(calender_df_age2)
+
 except:
     st.error('Unable to fetch data. Try after a few minutes')
