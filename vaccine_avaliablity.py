@@ -11,12 +11,6 @@ today_date = today.strftime("%d-%m-%Y")  # dd/mm/YY
 
 st.set_page_config(page_title="Vaccine Avaliablity" , page_icon=":syringe:",layout='wide', initial_sidebar_state='collapsed')
 
-# st.set_page_config
-
-# """
-# # Vaccine centers in India.
-# """
-
 st.markdown('# Slots availability for COVID Vaccine. :syringe::syringe:')
 
 """
@@ -26,7 +20,6 @@ st.markdown('# Slots availability for COVID Vaccine. :syringe::syringe:')
 df_states = pd.read_csv("data/states.csv")
 states_list = df_states['state_name'].to_list()
 
-# st.title("Please select Options")
 st.text(" \n\n")  # break line
 
 left_column_1, right_column_1 = st.beta_columns(2)
@@ -72,18 +65,15 @@ if 'vaccine_fees' in new_df.columns:
 else:
     new_df = new_df[['Date','Available Capacity', 'Min Age Limit','Name', 'Pincode', 'Timing', 'Fee type']]
 
-# district_pincode_list.tolist()
 selected_pincode = None
-with left_column_1:
-    agree = st.checkbox('Filter by Pincode')
-left_column_1, right_column_1 = st.beta_columns(2)
+
+agree = st.checkbox('Filter by Pincode')
 
 if agree:
-    with left_column_1:
-        selected_pincode = st.selectbox(
-        "Select Pincode",
-        options=sorted(set(district_pincode_list.tolist())),
-        )
+    selected_pincode = st.selectbox(
+    "Select Pincode",
+    options=sorted(set(district_pincode_list.tolist())),
+    )
     calender_df_pin = new_df[new_df["Pincode"] == selected_pincode]
     st.success("Results: " + "Pincode" + ": " + str(selected_pincode) + ",   " + str(selected_district) + ", " + str(
         selected_state))
