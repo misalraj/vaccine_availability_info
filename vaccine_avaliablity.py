@@ -74,17 +74,20 @@ else:
 
 # district_pincode_list.tolist()
 selected_pincode = None
-agree = st.checkbox('Filter by Pincode')
+with left_column_1:
+    agree = st.checkbox('Filter by Pincode')
+left_column_1, right_column_1 = st.beta_columns(2)
+
 if agree:
-    selected_pincode = st.selectbox(
+    with left_column_1:
+        selected_pincode = st.selectbox(
         "Select Pincode",
         options=sorted(set(district_pincode_list.tolist())),
-    )
+        )
     calender_df_pin = new_df[new_df["Pincode"] == selected_pincode]
     st.success("Results: " + "Pincode" + ": " + str(selected_pincode) + ",   " + str(selected_district) + ", " + str(
         selected_state))
     st.table(calender_df_pin)
-    
 else:
     st.success("Results: " + str(selected_district) + ", " + str(selected_state), )
     st.table(new_df)
