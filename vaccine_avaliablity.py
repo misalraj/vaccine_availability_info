@@ -80,12 +80,14 @@ try:
         options=sorted(set(district_pincode_list.tolist())),
         )
         calender_df_pin = new_df[new_df["Pincode"] == selected_pincode]
+        calender_df_age1 = calender_df_pin[calender_df_pin["Min Age Limit"] == min_age_limit]
+
         st.success("Results: " + "Pincode" + ": " + str(selected_pincode) + ",   " + str(selected_district) + ", " + str(
             selected_state))
-        st.table(calender_df_pin)
+        st.table(calender_df_age1)
     else:
         st.success("Results: " + str(selected_district) + ", " + str(selected_state), )
-        calender_df_age = new_df[new_df["Min Age Limit"] == min_age_limit]
-        st.table(calender_df_age)
+        calender_df_age2 = new_df[new_df["Min Age Limit"] == min_age_limit]
+        st.table(calender_df_age2)
 except:
     st.error('Unable to fetch data. Try after a few minutes')
