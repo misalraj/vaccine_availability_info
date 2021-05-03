@@ -22,7 +22,7 @@ states_list = df_states['state_name'].to_list()
 
 st.text(" \n\n")  # break line
 
-left_column_1, right_column_1 = st.beta_columns(2)
+left_column_1, center_column_1, right_column_1 = st.beta_columns(3)
 
 with left_column_1:
     selected_state = st.selectbox(
@@ -34,7 +34,7 @@ df_district_all = pd.read_csv("data/districts.csv")
 df_district = df_district_all.loc[df_district_all["state_name"] == selected_state]
 district_list = df_district["district_name"].tolist()
 
-with right_column_1:
+with center_column_1:
     selected_district = st.selectbox(
     "Select District",
     options=sorted(district_list),
@@ -68,6 +68,10 @@ try:
 
     selected_pincode = None
 
+    with right_column_1:
+        min_age_limit = st.radio('Min age limit', [18, 45])
+
+
     agree = st.checkbox('Filter by Pincode')
 
     if agree:
@@ -81,6 +85,7 @@ try:
         st.table(calender_df_pin)
     else:
         st.success("Results: " + str(selected_district) + ", " + str(selected_state), )
-        st.table(new_df)
+        calender_df_age = new_df[new_df["Min Age Limit"] == min_age_limit]
+        st.table(calender_df_age)
 except:
     st.error('Unable to fetch data. Try after a few minutes')
