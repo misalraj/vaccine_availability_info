@@ -17,7 +17,7 @@ st.set_page_config(page_title="Vaccine Avaliablity" , page_icon=":syringe:",layo
 # # Vaccine centers in India.
 # """
 
-st.markdown('# Vaccine centers in India :syringe::syringe:')
+st.markdown('# Slots availability for COVID Vaccine. :syringe::syringe:')
 
 """
  Source: [Github](https://github.com/misalraj/vaccine_availability_info) :star:
@@ -26,7 +26,7 @@ st.markdown('# Vaccine centers in India :syringe::syringe:')
 df_states = pd.read_csv("data/states.csv")
 states_list = df_states['state_name'].to_list()
 
-st.title("Please select Options")
+# st.title("Please select Options")
 st.text(" \n\n")  # break line
 
 left_column_1, right_column_1 = st.beta_columns(2)
