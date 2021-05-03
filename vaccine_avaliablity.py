@@ -9,7 +9,8 @@ from datetime import date
 today = date.today()
 today_date = today.strftime("%d-%m-%Y")  # dd/mm/YY
 
-st.set_page_config(page_title="Vaccine Avaliablity" , page_icon=":syringe:")
+st.set_page_config(page_title="Vaccine Avaliablity" , page_icon=":syringe:",layout='wide', initial_sidebar_state='collapsed')
+
 # st.set_page_config
 
 # """
@@ -25,22 +26,26 @@ st.markdown('# Vaccine centers in India :syringe::syringe:')
 df_states = pd.read_csv("data/states.csv")
 states_list = df_states['state_name'].to_list()
 
-st.sidebar.title("Please select Options")
+st.title("Please select Options")
 st.text(" \n\n")  # break line
 
-selected_state = st.sidebar.selectbox(
+left_column_1, right_column_1 = st.beta_columns(2)
+
+with left_column_1:
+    selected_state = st.selectbox(
     "Select State",
     options=sorted(states_list),
-)
+    )
 
 df_district_all = pd.read_csv("data/districts.csv")
 df_district = df_district_all.loc[df_district_all["state_name"] == selected_state]
 district_list = df_district["district_name"].tolist()
 
-selected_district = st.sidebar.selectbox(
+with right_column_1:
+    selected_district = st.selectbox(
     "Select District",
     options=sorted(district_list),
-)
+    )
 
 district_id = df_district_all.loc[df_district_all['district_name'] == selected_district, "district_id"].item()
 
@@ -57,10 +62,15 @@ calender_df["Timing"] = calender_df["from"] + " - " + calender_df["to"]
 calender_df.rename(columns={'name': 'Name', 'pincode': 'Pincode',
                             'fee_type': 'Fee type', 'vaccine_fees': "Vaccine charge"}, inplace=True)
 
-if 'vaccine_fees' in calender_df.columns:
-    calender_df = calender_df[['Name', 'Pincode', 'Timing', 'Fee type', 'Vaccine charge']]
+new_df =calender_df.explode("sessions")
+new_df['Min Age Limit'] = new_df.sessions.apply(lambda x: x['min_age_limit'])
+new_df['Available Capacity'] = new_df.sessions.apply(lambda x: x['available_capacity'])
+new_df['Date'] = new_df.sessions.apply(lambda x: x['date'])
+
+if 'vaccine_fees' in new_df.columns:
+    new_df = new_df[['Date','Available Capacity', 'Min Age Limit',  'Name', 'Pincode', 'Timing', 'Fee type', 'Vaccine charge']]
 else:
-    calender_df = calender_df[['Name', 'Pincode', 'Timing', 'Fee type']]
+    new_df = new_df[['Date','Available Capacity', 'Min Age Limit','Name', 'Pincode', 'Timing', 'Fee type']]
 
 # district_pincode_list.tolist()
 selected_pincode = None
@@ -70,11 +80,11 @@ if agree:
         "Select Pincode",
         options=sorted(set(district_pincode_list.tolist())),
     )
-    calender_df_pin = calender_df[calender_df["Pincode"] == selected_pincode]
+    calender_df_pin = new_df[new_df["Pincode"] == selected_pincode]
     st.success("Results: " + "Pincode" + ": " + str(selected_pincode) + ",   " + str(selected_district) + ", " + str(
         selected_state))
     st.table(calender_df_pin)
     
 else:
     st.success("Results: " + str(selected_district) + ", " + str(selected_state), )
-    st.table(calender_df)
+    st.table(new_df)
