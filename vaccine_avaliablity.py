@@ -45,7 +45,9 @@ district_id = df_district_all.loc[df_district_all['district_name'] == selected_d
 try:
     URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id={}&date={}" \
         .format(district_id, today_date)
-    res = requests.get(URL)
+  
+    headers = {"User-Agent": "Mozilla"}
+    res = requests.get(URL, headers=headers)
 
     calender_df = pd.DataFrame(json.loads(res.text)["centers"])
     district_pincode_list = calender_df.loc[calender_df['district_name'] == selected_district, "pincode"]
